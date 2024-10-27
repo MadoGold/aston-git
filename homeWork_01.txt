@@ -1,0 +1,79 @@
+1) Подробно прочитать про метод запроса OPTIONS - и кратко его описать, когда вызывается, где используется, что передает и принимает. 
+
+HTTP-метод OPTIONS используется для описания параметров соединения с целевым ресурсом.
+Вызывается, когда клиент хочет узнать какие методы доступны для определенного ресурса или для проверки, разрешены ли запросы с другого ресурса (CORS).
+Используется для определения доступных операций для конкретного маршрута, для проверки политик CORS, чтобы понимать, какие методы можно использовать в API.
+Передаёт запрос, URI ресурса, для которого запрашиваются доступные методы, заголовки: Origin: указывает, откуда был инициирован запрос.
+Принимает ответ, статус-код (обычно 200, если сервер обработал запрос), заголовки: Allow: указывает список методов, поддерживаемых для указанного ресурса,
+дополнительные заголовки, относящиеся к CORS.
+
+
+2) Прочитать и описать ключевые особенности "HTTP" Версии 3.0
+
+1. Протокол на основе QUIC
+2. Устойчивость к потере пакетов
+3. Мультиплексирование
+4. Упрощенная схема шифрования
+5. Низкая задержка
+6. Улучшенная производительность для мобильных сетей
+7. Обратная совместимость
+
+3) Прочитать про способы отмены запроса, включая объект "AbortController"
+
+signal: экземпляр объекта AbortSignal, позволяющий прервать запрос через интерфейс AbortController.
+
+3) Написать по 2 примера создания примитивных значений (если есть несколько способов - использовать) (string, number, boolean, null, undefined, symbol, bigInt)
+
+// string
+let myString1 = 'Hello, world!';
+let myString2 = "Hello, Vova!";
+let myString3 = `Hello world and ${myString2}`;
+
+// number
+let myNumber1 = 42;
+let myNumber2 = 3.14;
+let myNumber3 = Number('123');
+
+// boolean
+let myBoolean1 = true;
+let myBoolean2 = false;
+let myBoolean3 = (5 > 3);
+
+// null
+let myNull1 = null;
+
+let myNull2;
+myNull2 = null;
+
+// undefined
+let myUndefined1;
+let myUndefined2 = undefined;
+
+let myObject = {};
+let myUndefined3 = myObject.nonExistentProperty;
+
+// symbol
+let mySymbol1 = Symbol('description');
+let mySymbol2 = Symbol();
+let mySymbol3 = Symbol.for('globalSymbol');
+
+// bigInt
+let myBigInt1 = 9007199254740991n;
+let myBigInt2 = BigInt("9007199254740992");
+let myBigInt3 = BigInt(123);
+
+4) Почему, если обратиться к переменным созданным через let, const до их объявления - мы получаем ReferenceError? 
+
+Переменные, объявленные с помощью let и const, имеют временную мертвую зону (Temporal Dead Zone, TDZ).
+Это означает, что они не подлежат доступу до момента их инициализации. 
+
+5) Решить: 
+
+const res = "B" + "a" + (1 - "hello");
+console.log(res); // BaNaN
+
+const res2 = (true && 3) + "d";
+console.log(res2); // 3d
+
+const res3 = Boolean(true && 3) + "d";
+console.log(res3); // trued
