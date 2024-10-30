@@ -56,18 +56,32 @@ const newCounter4 = structuredClone(counter);
 
 // Задание 3 – Создать функцию makeCounter всеми описанными и возможными способами;
 
-function makeCounter(a) {
-  return a++
+function makeCounter() {
+  let count = 0
+  return function() {
+    return count++
+  }
 }
 
-let makeCounter1 = function (a) {
-  return a++
+let makeCounter1 = function () {
+  let count = 0
+  return function() {
+    return count++
+  }
 }
 
-let makeCounter2 = (a) => a++
+let makeCounter2 = (a) => {
+  let count = 0
+  return function() {
+    return count++
+  }
+}
 
-let makeCounter3 = function makeCounter33(a) {
-  return a++
+let makeCounter3 = function makeCounter33() {
+  let count = 0
+  return function() {
+    return count++
+  }
 }
 
 // Задание 4 - прочитать и описать работу глобальной функции structuredClone()
